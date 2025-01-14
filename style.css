@@ -2,7 +2,11 @@
   margin: 0;
   padding: 0;
   font-family: Arial, Helvetica, sans-serif;
-  border: border-box;
+  box-sizing: border-box;
+}
+
+body {
+  font-size: 16px;
 }
 
 .navbar {
@@ -34,7 +38,6 @@
   border: 1.5px solid white;
 }
 
-/* Box2 style */
 .add-first {
   color: #cccccc;
   font-size: 0.8rem;
@@ -53,11 +56,13 @@
 
 .nav-search {
   display: flex;
-  justify-content: space-evenly;
+  justify-content: space-between;
   background-color: pink;
-  width: 620px;
+  width: 100%;
+  max-width: 620px;
   height: 40px;
   border-radius: 4px;
+  margin: 10px 0;
 }
 
 .search-select {
@@ -258,16 +263,17 @@ ul p {
   padding-top: 5px;
 }
 
-/* Mobile Friendly Media Queries */
+/* Mobile-Friendly Layout - Up to 768px */
 @media (max-width: 768px) {
   .navbar {
     flex-direction: column;
     height: auto;
+    justify-content: center;
   }
 
   .nav-search {
-    width: 100%;
-    margin: 10px 0;
+    width: 90%;
+    margin: 10px auto;
   }
 
   .box {
@@ -277,6 +283,7 @@ ul p {
 
   .shop-section {
     justify-content: center;
+    padding: 10px;
   }
 
   .hero-section {
@@ -285,11 +292,12 @@ ul p {
 
   .hero-message {
     font-size: 0.75rem;
-    width: 100%;
+    width: 90%;
   }
 
   .pannel {
     flex-direction: column;
+    text-align: center;
   }
 
   .foot-pannel2 {
@@ -307,15 +315,17 @@ ul p {
   }
 }
 
-/* Tablet Screens (portrait and small screens) */
-@media (max-width: 1024px) {
+/* Tablet Layout (Portrait) - 768px to 1024px */
+@media (min-width: 768px) and (max-width: 1024px) {
   .navbar {
     flex-direction: column;
+    align-items: center;
     justify-content: center;
   }
 
   .box {
     width: 45%;
+    margin-bottom: 20px;
   }
 
   .hero-section {
@@ -328,5 +338,32 @@ ul p {
 
   .shop-section {
     justify-content: space-between;
+  }
+}
+
+/* Desktop Layout - 1024px and above */
+@media (min-width: 1024px) {
+  .navbar {
+    flex-direction: row;
+    justify-content: space-between;
+    height: 60px;
+  }
+
+  .box {
+    width: 23%;
+    margin-bottom: 20px;
+  }
+
+  .hero-section {
+    height: 350px;
+  }
+
+  .hero-message {
+    font-size: 0.85rem;
+    width: 80%;
+  }
+
+  .shop-section {
+    justify-content: space-evenly;
   }
 }
